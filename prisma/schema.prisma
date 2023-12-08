@@ -16,10 +16,27 @@ model User {
   role        UserRole @default(u)
   name        String?
   password    String
-  phoneNumber String?   @unique
+  phoneNumber String?  @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id        Int          @id @default(autoincrement())
+  title     String       @unique
+  type      CategoryType @default(m)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
 }
 
 enum UserRole {
   u
   a
+}
+
+enum CategoryType {
+  m
+  a
+  s
+  c
 }

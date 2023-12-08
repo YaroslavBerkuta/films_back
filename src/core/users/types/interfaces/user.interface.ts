@@ -7,4 +7,6 @@ export interface IUser {
   role: UserRole;
   password: string;
   phoneNumber: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
