@@ -22,11 +22,39 @@ model User {
 }
 
 model Category {
-  id        Int          @id @default(autoincrement())
-  title     String       @unique
-  type      CategoryType @default(m)
-  createdAt DateTime     @default(now())
-  updatedAt DateTime     @updatedAt
+  id             Int               @id @default(autoincrement())
+  title          String            @unique
+  type           CategoryType      @default(m)
+  filmToCategory FilmsToCategory[]
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+}
+
+model FilmsToCategory {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  films      Films?    @relation(fields: [filmsId], references: [id])
+  filmsId    Int?
+  category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+}
+
+model Films {
+  id             Int               @id @default(autoincrement())
+  name           String
+  ratings        Float
+  slogan         String
+  releaseDate    String
+  country        String
+  director       String
+  quality        String
+  time           String
+  descriptions   String
+  filmToCategory FilmsToCategory[]
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  views          String
 }
 
 enum UserRole {
