@@ -1,0 +1,21 @@
+version: '1.0'
+name: 'filmguid'
+
+services:
+  filmguid-postgres:
+    image: postgres:11
+    restart: always
+
+    ports:
+      - 3303:5432
+
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: db
+
+  filmguid-redis:
+    image: 'redis:4-alpine'
+    command: redis-server --requirepass root
+    ports:
+      - '6379:6379'
