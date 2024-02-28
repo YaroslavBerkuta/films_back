@@ -1,0 +1,3 @@
+export const FILMS_SERVICE = Symbol('FILMS_SERVICE')
+export const FILMS_REPOSITORY = Symbol('FILMS_REPOSITORY')
+export const FILM_INFO_REPOSITORY = Symbol('FILM_INFO_REPOSITORY')

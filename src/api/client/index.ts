@@ -1,1 +1,3 @@
-export const CLIENTS_API = [];
+import { ClientAccountModule } from './account/account.module'
+
+export const CLIENTS_API = [ClientAccountModule]

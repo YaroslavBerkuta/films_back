@@ -43,18 +43,38 @@ model FilmsToCategory {
 model Films {
   id             Int               @id @default(autoincrement())
   name           String
-  ratings        Float
-  slogan         String
-  releaseDate    String
-  country        String
-  director       String
-  quality        String
-  time           String
-  descriptions   String
+  views          Int
+  filmInfo       FilmInfo?
+  filmInfoId     Int?
   filmToCategory FilmsToCategory[]
   createdAt      DateTime          @default(now())
   updatedAt      DateTime          @updatedAt
-  views          String
+}
+
+model FilmInfo {
+  id           Int      @id @default(autoincrement())
+  ratings      Float
+  slogan       String
+  releaseDate  String
+  country      String
+  director     String
+  quality      String
+  time         String
+  descriptions String
+  film         Films?   @relation(fields: [filmId], references: [id])
+  filmId       Int?     @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Session {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  accessToken  String
+  refreshToken String
+  deviceName   String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 enum UserRole {

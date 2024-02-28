@@ -1,1 +1,1 @@
-export const ADMINS_API = [];
+export const ADMINS_API = []

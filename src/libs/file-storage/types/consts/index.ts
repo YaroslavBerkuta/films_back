@@ -1,0 +1,3 @@
+export const FILE_SERVICE = Symbol('FILE_SERVICE')
+export const CLOUDINARY_OPTIONS = Symbol('CLOUDINARY_OPTIONS')
+export const CLOUDINARY_SERVICE = Symbol('CLOUDINARY_SERVICE')

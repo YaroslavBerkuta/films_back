@@ -1,3 +1,3 @@
-import { UserModule } from './users/user.module';
+import { UserModule } from './users/user.module'
 
-export const CORE_MODULES = [UserModule.forRoot()];
+export const CORE_MODULES = [UserModule.forRoot()]
