@@ -5,7 +5,5 @@ import { FILE_SERVICE, IFileService } from 'src/libs/file-storage/types'
 export class FilesService {
 	@Inject(FILE_SERVICE) private readonly fileService: IFileService
 
-	public async uploadImage(image: Express.Multer.File) {
-		return this.fileService.uploadImageToCloudinary(image)
-	}
+	public async uploadImage() {}
 }
